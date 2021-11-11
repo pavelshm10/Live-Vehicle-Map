@@ -1,19 +1,22 @@
+var express = require('express');
+const cors = require('cors');
+const app = express();
+const port = 3000;
+var testApi=require('./routes/api');
 
+// console.log("check ",student);
 
-// const express=require('express'); 
+// app.post('/testApi', function(){
+//   console.log(request.body);      // your JSON
+//    response.send(request.body);    // echo the result back
+// });
 
-// const port=3000;
+// app.get('/testApi', function (req, res) { 
+//     res.send(vehicles);
+// })
+app.use(cors());
+app.use("/testApi",testApi)
 
-// const app= express();
-
-// app.get(
-//     '/',
-//     (req,res)=>res.send()
-// )
-
-// app.get(
-//     '/',
-//     (req,res)=>res.send()
-// )
-
-console.log("in")
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
