@@ -1,4 +1,4 @@
-export interface Vehicles{
+export interface Vehicle{
     "id":string,
     "state":string,
     "routeCommitId"?:null,
