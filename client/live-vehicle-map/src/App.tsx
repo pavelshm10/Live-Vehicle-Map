@@ -31,8 +31,7 @@ function App() {
 	// });
 
 	return (
-		<div className="App" style={{ width: 300, height: 300 }}>
-		 
+	<div className="App" style={{ width: 300, height: 300 }}>
       <CustomMap/>
     </div>
 )};
