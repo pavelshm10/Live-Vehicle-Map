@@ -1,5 +1,5 @@
 var express = require('express');
-// var service = require('./service.js');
+var path = require('path');
 const cors = require('cors');
 const app = express();
 const port = 3000;
@@ -8,9 +8,7 @@ var fs = require('fs');
 app.use(cors());
 let data = fs.readFileSync('./vehicles-location.json');
 let vehicles = JSON.parse(data);
-const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.post('/AllIdsBy', function (req, res) { 
     res.send(vehicles);

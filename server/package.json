@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "12.14.0"
+  }
+}
