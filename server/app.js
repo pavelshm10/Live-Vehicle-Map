@@ -1,14 +1,17 @@
 var express = require('express');
+require('dotenv').config();
 const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const host = process.env.HOST;
 var fs = require('fs');
+var path = require('path');
 app.use(cors());
 let data = fs.readFileSync('./vehicles-location.json');
 let vehicles = JSON.parse(data);
+app.use(express.static("./public"));
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
-
 app.post('/AllIdsBy', function (req, res) { 
     res.send(vehicles);
 });
@@ -39,7 +42,7 @@ function findIdsInPolygon(polygon){
     return arr;
 }
 
-app.listen(port, () => {
-    console.log(`app listening at http://localhost:${port}`)
+app.listen(port, host, () => {
+    console.log(`server is listening ${host}:${port}`)
 });
 
