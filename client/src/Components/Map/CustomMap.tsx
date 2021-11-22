@@ -178,20 +178,7 @@ function CustomMap({ google }: any) {
 		</div>
 	);
 }
-// {selected && (
-//     <InfoWindow google={google} visible={true} map={map as google.maps.Map} marker={marker}
-//     // onCloseClick={() => {
-//     //     setSelected(null);
-//     //  }}
-//      position={{
-//         lat: selected.location.lat,
-//         lng: selected.lng
-//      }}>
-//         <div>
-//             <h1>hello</h1>
-//         </div>
-//     </InfoWindow>
-//     )};
+
 export default GoogleApiWrapper({
 	apiKey: "AIzaSyDenVRxkWO6OP8EC_GFtMM86YcHYRnyaek",
 })(CustomMap);

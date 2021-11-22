@@ -1,14 +1,13 @@
 var express = require('express');
-var path = require('path');
 const cors = require('cors');
 const app = express();
 const port = 3000;
-// var api=require('./service');
 var fs = require('fs');
 app.use(cors());
 let data = fs.readFileSync('./vehicles-location.json');
 let vehicles = JSON.parse(data);
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+var bodyParser = require('body-parser')
+app.use(bodyParser.json())
 
 app.post('/AllIdsBy', function (req, res) { 
     res.send(vehicles);
@@ -16,7 +15,7 @@ app.post('/AllIdsBy', function (req, res) {
 
 app.post('/IdsByPolygon', function (req, res) { 
     const polygon = req.body.path;  
-    var idsInside = findIdsInPolygon(polygon)
+    var idsInside = findIdsInPolygon(polygon);
     res.send(idsInside);
 });
 
